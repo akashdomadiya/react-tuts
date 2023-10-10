@@ -1,20 +1,16 @@
 import React from "react";
-import"./App.css";
+import "./App.css";
+import UserCard from "./UserCard";
 
-function App(){
-  let data ="Code4Education";
 
-  const demo= () => {
-    data="Akash Domadiya"
-    alert(data)
-  };
+function App() {
   return(
-    <>
+  <>
     <div className="App">
-    <h1>{data}</h1>
-    <button onClick={()=> demo()}>Click Me</button>
+      <h1>Props in React.</h1>
+      <UserCard name="Akash Domadiya"/>
     </div>
-    </>
+  </>
   )
 };
 export default App;

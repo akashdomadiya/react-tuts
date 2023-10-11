@@ -1,16 +1,15 @@
-import React from "react";
+import React from 'react';
 import "./App.css";
-import UserCard from "./UserCard";
-
+import FormValidation from './FormValidation';
 
 function App() {
-  return(
-  <>
-    <div className="App">
-      <h1>Props in React.</h1>
-      <UserCard name="Akash Domadiya"/>
-    </div>
-  </>
-  )
-};
+  return (
+      <div className='App'>
+        <h1>Form validation</h1>
+        <FormValidation/>
+
+      </div>
+    )
+}
+
 export default App;

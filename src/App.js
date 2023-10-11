@@ -1,28 +1,21 @@
 import React, { useState } from "react";
 import "./App.css";
-import Users from "./Users";
+import RenderMethod from "./RenderMethod";
 function App() {
-  // Example 1 Function to be passed as a props
-  const handleButtonClick = () => {
-    console.log("Button clicked!");
-  };
-
-  // Example 2 useState
-  const [count, setCount] = useState(0);
-  const incrementCount = () => {
-    setCount(count + 1);
-  };
-
+  // const [name, setName] = useState("Code4education");
   return (
     <>
       <div className="App">
-        <h1>Pass Function as Props</h1>
+        <h1>Lifecycle Render Methods In React.</h1>
 
-        <Users
-          handleClick={handleButtonClick}
-          count={count}
-          increment={incrementCount}
-        />
+        {/* Example 2 */}
+        {/* <RenderMethod name={name} /> */}
+
+        {/* Example 3 */}
+        <RenderMethod />
+
+        {/* Example 2 */}
+        {/* <button onClick={() => setName("Bhaskar Gupta")}>Update Name</button> */}
       </div>
     </>
   );

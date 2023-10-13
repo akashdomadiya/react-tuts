@@ -1,30 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import ReusableButton from "./ReusableButton";
-import ReusableList from "./ReusableList";
+import ChildComponentA from "./ChildComponentA";
+import ChildComponentB from "./ChildComponentB";
 
 function App() {
   // Example 1
-  const handleButtonClick = () => {
-    console.log("Button Clicked!");
+  const [sharedState, setSharedState] = useState("");
+
+  const handleChange = (newValue) => {
+    console.log(newValue);
+    setSharedState(newValue);
   };
 
-  // Example 2
-  const countries = ["USA", "Canada", "India", "UK", "Aust", "Sri"];
+  // Exmaple 2
+  const parentAlert = (data) => {
+    alert(data.name);
+    console.log(data);
+  };
 
   return (
-    <>
-      <div className="App">
-        <h1>Reuse Component In React.</h1>
+    <div className="App">
+      <h1>Lifting State Up In React.</h1>
 
-        {/* Example 1 */}
-        <ReusableButton text="Click Me" onClick={handleButtonClick} />
-        <ReusableButton text="Submit" onClick={handleButtonClick} />
+      <ChildComponentA sharedState={sharedState} handleChange={handleChange} />
 
-        {/* Example 2 */}
-        <ReusableList items={countries} />
-      </div>
-    </>
+      <ChildComponentB sharedState={sharedState} alert={parentAlert} />
+    </div>
   );
 }
 export default App;

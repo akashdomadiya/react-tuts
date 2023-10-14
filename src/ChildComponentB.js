@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ChildComponentB({ sharedState, alert }) {
   // Exmaple 2
-  //   const data = "Bhaskar Gupta";
+  //   const data = "Akash Domadiya";
   const data = { name: "Akash Domadiya", email: "Akash@gmail.com" };
 
   return (

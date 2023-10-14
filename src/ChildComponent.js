@@ -1,13 +1,26 @@
-import React, { memo } from "react";
+import React, { forwardRef, useRef, useImperativeHandle } from "react";
 
-function ChildComponent(props) {
+function ChildComponent(props, ref) {
   // Example 2
-  console.log("Child Component Rendered!!");
+  const childRef = useRef();
+
+  const handleChildButtonClick = () => {
+    console.log("child button clicked");
+  };
+
+  useImperativeHandle(ref, () => ({
+    handleChildButtonClick,
+  }));
+
   return (
     <>
-      <h3>Child Component Count : {props.count}</h3>
+      {/* Example 1 */}
+      {/* <input type="text" ref={ref} /> */}
+
+      {/* Example 2 */}
+      <button ref={childRef}>Click Me</button>
     </>
   );
 }
 
-export default memo(ChildComponent);
+export default forwardRef(ChildComponent);

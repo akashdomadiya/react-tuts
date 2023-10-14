@@ -1,34 +1,52 @@
-import React, { Component } from "react";
+import React, { useState, useMemo } from "react";
 import "./App.css";
-import CounterPureComponent from "./CounterPureComponent";
 
-class App extends Component {
+function App() {
   // Example 1
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
-  }
+  const [number1, setNumber1] = useState(0);
+  const [number2, setNumber2] = useState(0);
+  const [count, setCount] = useState(0);
 
   // Example 1
-  handleIncrement = () => {
-    this.setState((prevState) => ({
-      count: prevState.count + 1,
-    }));
-  };
-  render() {
-    console.log("Parent rendered!!");
-    return (
-      <div className="App">
-        <h1>Pure Component In React.</h1>
+  // const sum = () => {
+  //   console.log("Calculating sum...! ");
+  //   return number1 + number2;
+  // };
 
-        <CounterPureComponent
-          count={this.state.count}
-          onIncrement={this.handleIncrement}
+  // Example 2
+  const sum = useMemo(() => {
+    console.log("Calculating sum...! ");
+    return number1 + number2;
+  }, [number1, number2]);
+
+  return (
+    <div className="App">
+      <h1>useMemo In React.</h1>
+
+      {/* Example 1 */}
+      <div>
+        <input
+          type="number"
+          value={number1}
+          onChange={(e) => setNumber1(Number(e.target.value))}
         />
+        <input
+          type="number"
+          value={number2}
+          onChange={(e) => setNumber2(Number(e.target.value))}
+        />
+
+        {/* Example 1 */}
+        {/* <p>Sum: {sum()}</p> */}
+
+        {/* Example 2 */}
+        <p>Sum: {sum}</p>
+
+        {/* Example 1 */}
+        <h2>Count Number: {count}</h2>
+        <button onClick={() => setCount(count + 1)}>Click ++</button>
       </div>
-    );
-  }
+    </div>
+  );
 }
 export default App;

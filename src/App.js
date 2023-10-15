@@ -1,24 +1,26 @@
-import React, { useState } from "react";
+import React, { createContext } from "react";
 import "./App.css";
-import Counter from "./Counter";
+import Child1 from "./Child1";
+
+// Create, provider, Consumer
+
+const MyContext = createContext();
+const MyContextNew = createContext();
 
 function App() {
-  // Example 1
-  const [count, setCount] = useState(0);
+  const sharedData = "Hello from Parent!!";
+  const sharedDataNew = "Multiple Entry!!";
+
   return (
     <div className="App">
-      <h1>useReducer Hook</h1>
-
-      {/* Example 1 */}
-      <h2>Count:{count}</h2>
-      <button onClick={() => setCount(count + 1)}>INCREMENT Count</button>
-      <button onClick={() => setCount(count - 1)}>DECREMENT Count</button>
-
-      {/* Example 2 */}
-      <br />
-      <br />
-      <Counter />
+      <MyContext.Provider value={sharedData}>
+        <MyContextNew.Provider value={sharedDataNew}>
+          <h1>Context API</h1>
+          <Child1 />
+        </MyContextNew.Provider>
+      </MyContext.Provider>
     </div>
   );
 }
 export default App;
+export { MyContext, MyContextNew };

@@ -8,8 +8,6 @@ import PageNotFound from "./Component/PageNotFound";
 function App() {
   return (
     <div className="App">
-      <h1>Hello! React Router V6</h1>
-
       {/* Navigations */}
       <BrowserRouter>
         <Navbar />
@@ -17,8 +15,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
-
-          {/* <Route path="/*" element={<h1>404 Page Not Found</h1>} /> */}
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

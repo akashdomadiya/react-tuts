@@ -35,7 +35,7 @@ function Navbar() {
               style={({ isActive }) => {
                 return {
                   backgroundColor: isActive ? "blue" : "transparent",
-                  color: "white",
+                  color: "red",
                 };
               }}
             >
